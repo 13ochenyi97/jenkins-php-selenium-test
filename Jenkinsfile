@@ -8,11 +8,11 @@ pipeline {
 					steps {
 						sh 'chmod 777 ./jenkins/scripts/deploy.sh'
 						sh 'chmod 777 ./jenkins/scripts/kill.sh'
-						sh 'sed $'s/\r$//' ./jenkins/scripts/deploy.sh > ./jenkins/scripts/deploy.Unix.sh'
-						sh 'sed $'s/\r$//' ./jenkins/scripts/kill.sh > ./jenkins/scripts/kill.Unix.sh'
-						sh './jenkins/scripts/deploy.Unix.sh'
+						sh 'sed $'s/\r$//' ./jenkins/scripts/deploy.sh > ./jenkins/scripts/deploy.sh'
+						sh 'sed $'s/\r$//' ./jenkins/scripts/kill.sh > ./jenkins/scripts/kill.sh'
+						sh './jenkins/scripts/deploy.sh'
 						input message: 'Finished using the web site? (Click "Proceed" to continue)'
-						sh './jenkins/scripts/kill.Unix.sh'
+						sh './jenkins/scripts/kill.sh'
 					}
 				}
 				stage('Headless Browser Test') {
